@@ -1,7 +1,8 @@
-== Setting Up a Virtual Network in virt-manager
+== Setting Up a Virtual Network Using virt-manager
 
-To set up a new virtual network in virt-manager, follow these steps:
+To add a new virtual network in virt-manager, follow these steps:
 
+.Adding a New Virtual Network
 . Open virt-manager and right-click the name of the connection for which you want to set up
 the virtual network, and select Details.
 . Click the Virtual Networks tab, then click the plus '+' button in the lower part
@@ -15,8 +16,9 @@ while hosts belonging to a forwarded network can make use of the VM host's physi
 . Specify the DNS domain name, usually same as the VM host's domain name. Run `dnsdomainname` to find it.
 . Confirm with Finish.
 
-Now you need to tell the VMs to use the new virtual network:
+Now you need to tell the VMs to use the new virtual network.
 
+.Adding VM to a Virtual Network
 . Open the related VM by right-clicking its name and selecting Open.
 . From the main menu, select View > Details.
 . Click the item starting with NIC and select the relevant virtual network by its name 
@@ -28,8 +30,10 @@ to obtain network settings from it, you do not need to make any further configur
 on the VMs.
 
 If you turned the DHCP server option off during the virtual network configuration, you need
-to configure the VMs to use static IP addresses, DNS servers, and network gateway:
+to configure the VMs to use static IP addresses, DNS servers, and network
+gateway.
 
+.Configuring Static IP Address in VM
 . Open the VM and start it if not running.
 . Open YaST > System > Network Settings.
 . In the 'Overview' tab, edit the network interface, and select 'Statically Assigned IP Address'.
@@ -37,5 +41,5 @@ Fill the static IP address and host name. Confirm with 'Next'.
 . Switch to the 'Hostname/DNS' tab. Enter host name and domain name.
 . During the virtual network creation, a new network is created on VM host.
 Run `ip a | grep virbr` and find its IP address. Then enter this IP address as
-a 'Name Sever 1', and default gateway in the 'Routing' tab. Confirm with 'OK'.
+a 'Name Sever 1', and as a default gateway in the 'Routing' tab. Confirm with 'OK'.
 
