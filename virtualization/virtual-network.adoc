@@ -1,4 +1,4 @@
-== Setting up virtual network in virt-manager
+== Setting Up a Virtual Network in virt-manager
 
 To set up a new virtual network in virt-manager, follow these steps:
 
@@ -6,7 +6,13 @@ To set up a new virtual network in virt-manager, follow these steps:
 the virtual network, and select Details.
 . Click the Virtual Networks tab, then click the plus '+' button in the lower part
 to add a new virtual network
-. 
+. Fill the name of the new virtual network and confirm with Forward.
+. Specify network address space, and DHCP settings for both IPv4 and IPv6 as required.
+. Specify whether you want an isolated network, or network forwarded to a physical existing network.
+An isolated network hosts cannot access are not accessible form the external network, 
+while hosts belonging to a forwarded network can make use of the VM host's physical network interface
+  to access the external network.
+. Specify the DNS domain name, usually same as the VM host's domain name. Run `dnsdomainname` to find it.
 
 
 // vim: set syntax=asciidoc:
