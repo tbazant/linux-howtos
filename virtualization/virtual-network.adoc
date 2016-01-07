@@ -3,6 +3,7 @@
 To add a new virtual network in virt-manager, follow these steps:
 
 .Adding a New Virtual Network
+
 . Open virt-manager and right-click the name of the connection for which you want to set up
 the virtual network, and select Details.
 . Click the Virtual Networks tab, then click the plus '+' button in the lower part
