@@ -13,6 +13,29 @@ An isolated network hosts cannot access are not accessible form the external net
 while hosts belonging to a forwarded network can make use of the VM host's physical network interface
   to access the external network.
 . Specify the DNS domain name, usually same as the VM host's domain name. Run `dnsdomainname` to find it.
+. Confirm with Finish.
 
+Now you need to tell the VMs to use the new virtual network:
 
-// vim: set syntax=asciidoc:
+. Open the related VM by right-clicking its name and selecting Open.
+. From the main menu, select View > Details.
+. Click the item starting with NIC and select the relevant virtual network by its name 
+from the 'Network source' drop-down menu.
+. Confirm with 'Apply'
+
+If your virtual network has a DHCP server active and your VMs are configured
+to obtain network settings from it, you do not need to make any further configuration
+on the VMs.
+
+If you turned the DHCP server option off during the virtual network configuration, you need
+to configure the VMs to use static IP addresses, DNS servers, and network gateway:
+
+. Open the VM and start it if not running.
+. Open YaST > System > Network Settings.
+. In the 'Overview' tab, edit the network interface, and select 'Statically Assigned IP Address'.
+Fill the static IP address and host name. Confirm with 'Next'.
+. Switch to the 'Hostname/DNS' tab. Enter host name and domain name.
+. During the virtual network creation, a new network is created on VM host.
+Run `ip a | grep virbr` and find its IP address. Then enter this IP address as
+a 'Name Sever 1', and default gateway in the 'Routing' tab. Confirm with 'OK'.
+
